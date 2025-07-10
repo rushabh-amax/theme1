@@ -4,4 +4,4 @@ ceathe hims theme
 
 #### License
 
-mit
+mit# collection_themes
