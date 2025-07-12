@@ -1,9 +1,63 @@
+# Ensure this file gets loaded
+import theme1.api.module
+
 app_name = "theme1"
 app_title = "Theme1"
 app_publisher = "rushabh"
 app_description = "ceathe hims theme"
 app_email = "rushabh@gmail.com"
 app_license = "mit"
+app_version = "0.0.1"  
+
+
+
+
+
+# app_include_css = [
+#     "/assets/theme1/css/module.css",
+#     "/assets/theme1/css/login.bundle.css",
+#     "/assets/theme1/css/theme.css",
+#      ]
+
+# # Apply this only to public (unauthenticated) pages like login
+# website_include_css = [
+#     "/assets/theme1/css/module.css",
+#     "/assets/theme1/css/login.bundle.css",
+#     "/assets/theme1/css/theme.css",
+# ]
+
+
+# app_include_js = [
+#     "/assets/theme1/js/module.js",
+#     "/assets/theme1/js/page_custom.js",
+#     "/assets/theme1/js/feather.min.js",
+#     "/assets/theme1/js/use_feather_for_erp.js",
+# ]
+
+
+
+
+
+app_include_css = [
+    # "/assets/theme1/css/module.css",         
+    "/assets/theme1/css/login.bundle.css",   
+    "/assets/theme1/css/theme.css",          
+    ]
+
+website_include_css = [
+    # "/assets/theme1/css/module.css",
+    "/assets/theme1/css/login.bundle.css",
+    "/assets/theme1/css/theme.css",
+]
+app_include_js = [
+    # "/assets/theme1/js/module.js",             
+    "/assets/theme1/js/page_custom.js",
+    "https://unpkg.com/lucide@latest/dist/umd/lucide.min.js",
+    "/assets/your_theme_app/js/use_lucide_for_erp.js"       
+    # "/assets/theme1/js/feather.min.js",         
+    # "/assets/theme1/js/use_feather_for_erp.js"  
+]
+
 
 # Apps
 # ------------------

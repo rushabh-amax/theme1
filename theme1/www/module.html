@@ -1,0 +1,19 @@
+{% extends "templates/web.html" %}
+
+{% block head %}
+  {{ super() }}
+  <link rel="stylesheet" href="/assets/theme1/css/theme.css">
+  <link rel="stylesheet" href="/assets/theme1/css/module.css">
+{% endblock %}
+
+{% block page_content %}
+  <div class="module-wrapper">
+    <input id="search-box" class="module-search" placeholder="Search modules..." autofocus />
+    <div id="modules-container"></div>
+  </div>
+{% endblock %}
+
+{% block script %}
+  {{ super() }}
+  <script src="/assets/theme1/js/module.js"></script>
+{% endblock %}
