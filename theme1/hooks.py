@@ -33,13 +33,13 @@ app_version = "0.0.1"
 #     "/assets/theme1/js/feather.min.js",
 #     "/assets/theme1/js/use_feather_for_erp.js",
 # ]
-
-
+# boot_session = "theme1.theme.set_default_theme_for_user"
+# boot_session = "theme1.theme.set_default_theme_for_user"
 
 
 
 app_include_css = [
-    # "/assets/theme1/css/module.css",         
+    "/assets/theme1/css/module.css",         
     "/assets/theme1/css/login.bundle.css",   
     "/assets/theme1/css/theme.css",          
     ]
@@ -58,6 +58,10 @@ app_include_js = [
     # "/assets/theme1/js/use_feather_for_erp.js"  
 ]
 
+
+override_whitelisted_methods = {
+    "frappe.core.doctype.user.user.switch_theme": "theme1.overrides.switch_theme.switch_theme"
+}
 
 # Apps
 # ------------------

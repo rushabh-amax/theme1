@@ -106,4 +106,5 @@ document.addEventListener("DOMContentLoaded", () => {
     childList: true,
     subtree: true,
   });
-});
+  });
+
