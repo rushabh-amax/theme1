@@ -4,7 +4,9 @@
 /* default light mode style's */
 [data-theme="dark"]{
   --card-bg:transparent;
-
+  }
+[data-theme="dark"] .btn {
+  filter: invert(1) grayscale(1);
 }
 [data-theme="light"]{
   --control-bg:transparent;
@@ -114,6 +116,10 @@
 
 
     /* Derived shades */
+    --timeline-badge-color: oklch(var(--base-l) var(--base-c) var(--base-h));
+    --dark-border-color:oklch(97% 0.05 var(--base-h));
+    --sidebar-select-color:oklch(97% 0.05 var(--base-h)) ;
+    --subtle-fg:oklch(97% 0.05 var(--base-h)) ;
     --control-bg: oklch(97% 0.05 var(--base-h));
     --primary_clr:     oklch(var(--base-l) var(--base-c) var(--base-h));
     --secondry_clr:    oklch(70% var(--base-c) var(--base-h));  /* lighter */
@@ -167,6 +173,7 @@
 
 
 [data-theme="healthcare_theme"] [data-label="New"],
+
 [data-theme="healthcare_theme"] [data-label="Edit"] {
   line-height: 1 !important;
 }
@@ -177,6 +184,13 @@
 [data-theme="healthcare_theme"] [data-label="New"] {
   --default_clr: #daf0e1 !important;
   color:#28a745;
+}
+[data-theme="healthcare_theme"]  .btn .btn-primary .btn-sm .primary-action {
+    --active_txt_clr: #000;
+    background: whitesmoke !important;
+    padding: .5em .75em !important;
+    /* line-height: 2; */
+    border: unset;
 }
 
 [data-theme="healthcare_theme"] div#driver-popover-item .driver-popover-footer .driver-close-btn{
@@ -213,7 +227,7 @@
       /* line-height: 2; */
   }
 [data-theme="healthcare_theme"] .btn.btn-primary span{
-    color: var(--active_txt_clr) !important;
+    color: #000 !important;
   }
 [data-theme="healthcare_theme"] .btn-sm{
     background:var(--default_clr) !important;
@@ -221,8 +235,7 @@
   }
 [data-theme="healthcare_theme"] .btn.btn-primary[data-label="Save"],
 [data-theme="healthcare_theme"] .add-btn-text {
-      --active_txt_clr:#000;
-    background:var(--active_txt_clr) !important;
+    background:rgba(106, 255, 106, 0.534) !important;
     padding: .5em .75em !important;
       /* line-height: 2; */
       border: unset;
@@ -232,7 +245,7 @@
     color: rgba(var(--cancle),.25) !important;
   }
 [data-theme="healthcare_theme"] .btn[data-label="Discard"]{
-    background:rgba(var(--cancle)) !important;
+    background:rgba(var(--cancle) , .75) !important;
     padding: .5em .75em !important;
       /* line-height: 2; */
   }
@@ -404,8 +417,12 @@ navbar's style's
     width: 100%;
     border-radius: 50em;
 }
+
 [data-theme="healthcare_theme"] .search-bar input:focus{
     border-radius: 10em !important  ;
+}
+[data-theme="healthcare_theme"] .list-sidebar .list-filters input:not([data-fieldtype=Check]){
+  background-color: var(--active_txt_clr);
 }
 [data-theme="healthcare_theme"] .dropdown-help{
   order:2;
@@ -616,7 +633,8 @@ line-height: 2;
   /* module */
 
 
-[data-theme="healthcare_theme"] .form-sidebar-items button .es-icon {
+[data-theme="healthcare_theme"] .form-sidebar-items button .es-icon,
+[data-theme="healthcare_theme"] .form-sidebar-items button.drop-icon svg use {
     --icon-stroke:var(--secondry_clr);
     --icon-fill:var(--primary_clr);
 
@@ -704,3 +722,5 @@ line-height: 2;
 .btn.btn-link.icon-btn{
   background-color: var(--default_clr) !important;
 }
+
+
