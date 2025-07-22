@@ -1,110 +1,126 @@
-// console.log("✅ page_custom.js loaded");
+// const colLg2_className = 'col-lg-2';
+// const sidebar = document.querySelector(".layout-side-section");
 
-// function injectModuleLinkToSearchForm() {
-//   const searchForm = document.querySelector('form[role="search"]');
-
-//   if (!searchForm) {
-//     console.warn("⏳ Search form not found. Retrying...");
-//     setTimeout(injectModuleLinkToSearchForm, 500);
+// setTimeout(() => {
+//   const sidebar = document.querySelector(".layout-side-section");
+//   if (!sidebar) {
+//     console.log("Sidebar not found");
 //     return;
 //   }
 
-//   // Avoid duplicate
-//   if (document.getElementById("module-nav-link")) return;
+//   console.log("Sidebar element:", sidebar);
+//   console.log("All classes:", [...sidebar.classList]);
+//   console.log("Has 'col-lg-2'?", sidebar.classList.contains("col-lg-2"));
+// }, 1000);
 
-//   // Create <li> or better: <div> for consistent styling inside a form
-//   const moduleBtn = document.createElement("div");
-//   moduleBtn.className = "customMoule ml-2"; // spacing on left
-//   moduleBtn.id = "module-nav-link";
-//   moduleBtn.innerHTML = `
-//     <a class="nav-link d-flex align-items-center" href="/module">
-//       <i data-feather="grid" class="mr-1"></i>
-//     </a>
-//   `;
 
-//   searchForm.appendChild(moduleBtn);
-//   console.log("✅ Module link injected into search form");
-
-//   // Replace Feather icon
-//   if (window.feather) feather.replace();
+// if (sidebar && sidebar.classList.contains(colLg2_className)) {
+//   console.log("Sidebar has col-lg-2 class");
+// } else {
+//   console.log("Sidebar does NOT have col-lg-2 class");
 // }
 
-// // Ensure DOM + ERPNext is ready
-// frappe.after_ajax(() => {
-//   injectModuleLinkToSearchForm();
-// });
 
+function waitForSidebarAndRemoveColClass() {
+  const sidebar = document.querySelector(".layout-side-section");
 
-function replaceFeatherIcons() {
-  if (typeof feather === "undefined") {
-    console.warn("Feather.js not found.");
+  if (!sidebar) {
+    // Retry until sidebar is available
+    setTimeout(waitForSidebarAndRemoveColClass, 100);
     return;
   }
 
-  const iconMap = {
-    "getting-started": "home",
-    "users": "user",
-    "user": "user",
-    "edit": "edit-3",
-    "plus": "plus-circle",
-    "trash": "trash-2",
-    "calendar": "calendar",
-    "settings": "settings",
-    "search": "search",
-    "arrow-right": "arrow-right",
-    "arrow-left": "arrow-left",
-    "file": "file-text",
-    "home": "home",
-    "tools": "tool",
-    "modules": "grid",
-    // Add more mappings as needed
-  };
-
-  // Replace SVG sprite <use> tags
-  document.querySelectorAll("svg use").forEach(useTag => {
-    const href = useTag.getAttribute("href") || useTag.getAttribute("xlink:href");
-    if (!href || !href.startsWith("#icon-")) return;
-
-    const iconKey = href.replace("#icon-", "");
-    const featherIcon = iconMap[iconKey];
-
-    if (featherIcon && feather.icons[featherIcon]) {
-      const svg = feather.icons[featherIcon].toSvg({ class: "feather" });
-      const wrapper = document.createElement("span");
-      wrapper.innerHTML = svg;
-      const featherSvg = wrapper.firstElementChild;
-
-      const parentSvg = useTag.closest("svg");
-      if (parentSvg) {
-        parentSvg.replaceWith(featherSvg);
-      }
-    }
-  });
-
-  // Replace any <i class="fa fa-xxx"> tags
-  document.querySelectorAll("i.fa").forEach(el => {
-    const faIcon = [...el.classList].find(cls => cls.startsWith("fa-"))?.replace("fa-", "");
-    const featherIcon = iconMap[faIcon];
-    if (featherIcon && feather.icons[featherIcon]) {
-      const svg = feather.icons[featherIcon].toSvg({ class: "feather" });
-      const wrapper = document.createElement("span");
-      wrapper.innerHTML = svg;
-      el.replaceWith(wrapper.firstElementChild);
-    }
-  });
-
-  feather.replace(); // Also processes <i data-feather="">
+  // Confirm it's there and remove
+  if (sidebar.classList.contains("col-lg-2")) {
+    sidebar.classList.remove("col-lg-2");
+    console.log("Removed col-lg-2 from sidebar");
+  } else {
+    console.log("Sidebar doesn't have col-lg-2");
+  }
 }
 
-// Observe all DOM changes (sidebar, forms, modals, etc.)
-const observer = new MutationObserver(() => replaceFeatherIcons());
+document.addEventListener("DOMContentLoaded", waitForSidebarAndRemoveColClass);
 
-document.addEventListener("DOMContentLoaded", () => {
-  replaceFeatherIcons();
 
-  observer.observe(document.body, {
-    childList: true,
-    subtree: true,
+
+
+function initSidebarToggleButton() {
+  const sidebar = document.querySelector(".layout-side-section");
+  const pageHead = document.querySelector(".page-head-content");
+
+  if (!sidebar || !pageHead) {
+    // Retry if elements are not loaded yet
+    setTimeout(initSidebarToggleButton, 200);
+    return;
+  }
+
+  // Create the toggle button
+  const toggleButton = document.createElement("button");
+  toggleButton.innerHTML = "☰";
+  toggleButton.className = "btn btn-outline-secondary btn-sm me-2"; // Bootstrap styles
+  toggleButton.title = "Toggle Sidebar";
+
+  // Insert it at the beginning of page-head-content
+  pageHead.prepend(toggleButton);
+
+  // Track state
+  let isExpanded = true;
+
+  toggleButton.addEventListener("click", function () {
+    isExpanded = !isExpanded;
+
+    if (isExpanded) {
+      expandSidebar(sidebar);
+    } else {
+      collapseSidebar(sidebar);
+    }
   });
+}
+function collapseSidebar(sidebar) {
+  sidebar.classList.remove("col-lg-2", "col-md-3");
+  sidebar.classList.add("w-60px");
+
+  document.querySelectorAll(".standard-sidebar-item .sidebar-item-label").forEach(el => {
+    el.classList.add("d-none");
+  });
+  document.querySelectorAll(".sidebar-item-icon .icon").forEach(el => {
+    el.style.transform = "scale(1.35)";
+    el.classList.add("ml-3")
+
+    el.style.transition = "transform 0.2s ease";
   });
 
+
+  document.querySelectorAll(".standard-sidebar-item").forEach(el => {
+    el.classList.add("justify-content-center");
+    el.classList.remove("justify-content-start");
+  });
+
+  console.log("Sidebar collapsed");
+}
+
+function expandSidebar(sidebar) {
+  sidebar.classList.remove("col-auto");
+  sidebar.classList.add("col-lg-2", "col-md-3");
+
+  document.querySelectorAll(".standard-sidebar-item .sidebar-item-label").forEach(el => {
+    el.classList.remove("d-none");
+  });
+
+  document.querySelectorAll(".standard-sidebar-item").forEach(el => {
+    el.classList.remove("justify-content-center");
+    el.classList.add("justify-content-start");
+  });
+
+    document.querySelectorAll(".sidebar-item-icon .icon").forEach(el => {
+    el.style.transform = "scale(1)";
+    el.style.marginLeft = "unset";
+
+    el.style.transition = "transform 0.2s ease";
+  });
+
+  console.log("Sidebar expanded");
+}
+
+// Init on DOM load
+document.addEventListener("DOMContentLoaded", initSidebarToggleButton);

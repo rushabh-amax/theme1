@@ -92,7 +92,7 @@
     /* Base OKLCH components */
     --base-l: 60%;       /* Lightness */
     --base-c: 0.25;      /* Chroma (color strength) */
-    --base-h: 290;       /* Hue */
+    --base-h: 1000;       /* Hue */
     
  /* 
  theme
@@ -116,7 +116,7 @@
 
 
     /* Derived shades */
-    --timeline-badge-color: oklch(var(--base-l) var(--base-c) var(--base-h));
+    --timeline-badge-color: oklch(var(--base-l) var(--base-c) var(--base-h),.25);
     --dark-border-color:oklch(97% 0.05 var(--base-h));
     --sidebar-select-color:oklch(97% 0.05 var(--base-h)) ;
     --subtle-fg:oklch(97% 0.05 var(--base-h)) ;
@@ -135,18 +135,35 @@
 
 
     /* text's size */
-        --text-tiny: 11px;
-    --text-2xs: 12px;
+    /* 
+    ========== changed ==========
+   
+    --text-tiny: 10.5px;  
+    --text-2xs: 11px;
     --text-xs: 12px;
-    --text-sm: 14px;
-    --text-md: 13px;
-    --text-base: 16px;
+    --text-sm: 13px;
+    --text-md: 14px;
+    --text-base: 17.5px;
     --text-lg: 20px;
-    --text-xl: 20px;
-    --text-2xl: 20px;
-    --text-3xl: 24px;
+    --text-xl: 24px;
+    --text-2xl: 25px;
+    --text-3xl: 25.5px;
     --text-4xl: 26px;
-    --text-5xl: 28px;
+    --text-5xl: 27.5px;
+
+    */
+    --text-tiny: 10.5px;  
+    --text-2xs: 11px;
+    --text-xs: 12px;
+    --text-sm: 13px;
+    --text-md: 14px;
+    --text-base: 17.5px;
+    --text-lg: 20px;
+    --text-xl: 24px;
+    --text-2xl: 25px;
+    --text-3xl: 25.5px;
+    --text-4xl: 26px;
+    --text-5xl: 27.5px;
     --text-6xl: 32px;
     --text-7xl: 40px;
     --text-8xl: 44px;
@@ -369,7 +386,9 @@ driver's btn's
   border-radius: .5em !important;
 }
 
-[data-theme="healthcare_theme"] .standard-sidebar-item.selected
+[data-theme="healthcare_theme"] .standard-sidebar-item.selected,
+[data-theme="healthcare_theme"] .standard-sidebar-item.active.selected
+
 {
 
   background: var(--active_bg_clr) !important;
@@ -377,11 +396,13 @@ driver's btn's
 }
 
 
-[data-theme="healthcare_theme"] .standard-sidebar-item.selected .item-anchor .sidebar-item-label
+[data-theme="healthcare_theme"] .standard-sidebar-item.selected .item-anchor .sidebar-item-label,
+[data-theme="healthcare_theme"] .standard-sidebar-item.active.selected .sidebar-link
 {
   color: var(--active_txt_clr) !important;
 }
-[data-theme="healthcare_theme"] .desk-sidebar-item.standard-sidebar-item.selected .sidebar-item-icon svg {
+[data-theme="healthcare_theme"] .desk-sidebar-item.standard-sidebar-item.selected .sidebar-item-icon svg,
+[data-theme="healthcare_theme"] .standard-sidebar-item.active.selected svg.icon  use {
   --icon-stroke:var(--active_txt_clr);
   /* color: var(--active_txt_clr) !important; */
 }
@@ -724,3 +745,39 @@ line-height: 2;
 }
 
 
+
+
+/* .custom-mini-sidebar {
+  width: 35px !important;
+  overflow: hidden;
+  transition: width 0.3s ease;
+}
+
+ */
+
+[aria-label="Toggle Sidebar"]{
+  display: none !important;
+}
+[title="Toggle Sidebar"]{
+      margin-left: .65em !important;
+}
+ .w-60px{
+  width: 90px !important;
+ }
+/* Add this in your theme CSS or via `frappe.dom.set_style()` */
+/* .w-60px .standard-sidebar-item .sidebar-item-icon {
+  transform: scale(1.4);
+  transition: transform 0.2s ease;
+} */
+
+/* 
+ @media (max-width:1055px) {
+   #page-Workspaces{
+    background-color: red;
+   }
+   .layout-main > .col-lg-2.layout-side-section{
+    width: 60px !important;
+    background-color: black;
+   }
+  
+ }  */

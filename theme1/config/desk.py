@@ -1,12 +1,19 @@
-# apps/theme1/theme1/config/desktop.py
+# theme1/config/desktop.py
+from frappe import _
 
-app_name = "theme1"
-
-module = {
-    "module_name": "all_modules_collection",
-    "category": "Modules",
-    "label": "All Modules Collection",
-    "icon": "octicon octicon-file-directory",
-    "type": "module",
-    "color": "#1abc9c"
-}
+def get_data():
+    return [
+        {
+            "module_name": "Theme1",
+            "color": "#589494",
+            "icon": "octicon octicon-file-directory",
+            "type": "module",
+            "label": _("Theme1")
+        },
+        {
+            "label": _("Morden Desk"),
+            "icon": "fa fa-star",
+            "type": "page",
+            "name": "morden-menu"
+        }
+    ]
