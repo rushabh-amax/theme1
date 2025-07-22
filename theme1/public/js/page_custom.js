@@ -1,26 +1,3 @@
-// const colLg2_className = 'col-lg-2';
-// const sidebar = document.querySelector(".layout-side-section");
-
-// setTimeout(() => {
-//   const sidebar = document.querySelector(".layout-side-section");
-//   if (!sidebar) {
-//     console.log("Sidebar not found");
-//     return;
-//   }
-
-//   console.log("Sidebar element:", sidebar);
-//   console.log("All classes:", [...sidebar.classList]);
-//   console.log("Has 'col-lg-2'?", sidebar.classList.contains("col-lg-2"));
-// }, 1000);
-
-
-// if (sidebar && sidebar.classList.contains(colLg2_className)) {
-//   console.log("Sidebar has col-lg-2 class");
-// } else {
-//   console.log("Sidebar does NOT have col-lg-2 class");
-// }
-
-
 function waitForSidebarAndRemoveColClass() {
   const sidebar = document.querySelector(".layout-side-section");
 
@@ -71,25 +48,34 @@ function initSidebarToggleButton() {
 
     if (isExpanded) {
       expandSidebar(sidebar);
+
     } else {
+  
       collapseSidebar(sidebar);
     }
   });
 }
 function collapseSidebar(sidebar) {
+  sidebar.classList.add("w-60px" , "px-2");
   sidebar.classList.remove("col-lg-2", "col-md-3");
-  sidebar.classList.add("w-60px");
 
   document.querySelectorAll(".standard-sidebar-item .sidebar-item-label").forEach(el => {
     el.classList.add("d-none");
   });
   document.querySelectorAll(".sidebar-item-icon .icon").forEach(el => {
-    el.style.transform = "scale(1.35)";
+    el.style.transform = "scale(1.15)";
     el.classList.add("ml-3")
+    el.classList.remove("icon-md")
+    el.classList.add("icon-lg")
 
     el.style.transition = "transform 0.2s ease";
   });
 
+  
+  document.querySelectorAll("data-page-route=Workspaces] .standard-sidebar-item .item-anchor ").forEach(el => {
+    el.style.alignItems = 'center';
+    el.style.justifyContent = 'center';
+  })
 
   document.querySelectorAll(".standard-sidebar-item").forEach(el => {
     el.classList.add("justify-content-center");
@@ -116,11 +102,45 @@ function expandSidebar(sidebar) {
     el.style.transform = "scale(1)";
     el.style.marginLeft = "unset";
 
+    el.classList.remove("ml-3")
+    el.classList.remove("icon-lg")
+    el.classList.add("icon-md")
     el.style.transition = "transform 0.2s ease";
   });
 
   console.log("Sidebar expanded");
+
+  
 }
 
 // Init on DOM load
 document.addEventListener("DOMContentLoaded", initSidebarToggleButton);
+
+
+function movePageHeadContent() {
+  const observer = new MutationObserver(() => {
+    const source = document.querySelector(".page-head-content");
+    const target = document.querySelector(".layout-main-section-wrapper");
+    source.classList.add("py-2")
+
+    if (source && target) {
+      // Move the source element into the target as the first child
+      target.insertBefore(source, target.firstChild);
+
+      console.log("✅ Moved .page-head-content into .layout-main-section-wrapper");
+
+      // Stop observing once done
+      observer.disconnect();
+    }
+  });
+
+  // Start observing changes in the body subtree
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true,
+  });
+}
+
+// Run it after DOM is ready
+document.addEventListener("DOMContentLoaded", movePageHeadContent);
+

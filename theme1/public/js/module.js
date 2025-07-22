@@ -83,6 +83,27 @@
 // });
 
 
+document.addEventListener("DOMContentLoaded", function () {
+  const navbar = document.querySelector(".navbar-right");
+
+  if (navbar) {
+    const moduleBtn = document.createElement("button");
+    moduleBtn.innerText = "Modules";
+    moduleBtn.className = "btn btn-sm btn-primary ml-2";
+    moduleBtn.style.marginLeft = "10px";
+
+    moduleBtn.addEventListener("click", () => {
+      window.location.href = "/module"; // change this to your module route
+    });
+
+    navbar.prepend(moduleBtn); // Add to left side
+  } else {
+    console.warn("Navbar not found.");
+  }
+});
+
+
+
 
 document.addEventListener("DOMContentLoaded", function () {
   const modulesContainer = document.getElementById("modules-container");
@@ -113,33 +134,39 @@ document.addEventListener("DOMContentLoaded", function () {
                  class="svg-icon" />`;
   };
 
-  function renderModules(filter = "") {
-    modulesContainer.innerHTML = "";
-    const filtered = modules.filter(m =>
-      m.module_name.toLowerCase().includes(filter.toLowerCase())
-    );
-
-    if (filtered.length === 0) {
-      modulesContainer.innerHTML = `<p style="padding:1rem; text-align:center; color:gray;">No modules found.</p>`;
-      return;
-    }
-
-    filtered.forEach((mod, i) => {
-      const card = document.createElement("div");
-      card.className = "module-card fade-in";
-      card.style.animationDelay = `${i * 40}ms`;
-      card.innerHTML = `
-        <div class="icon">${getIconHTML(mod.icon_module, mod.module_name)}</div>
-        <div class="name">${mod.module_name}</div>
-      `;
-
-      card.addEventListener("click", () => {
-        window.location.href = mod.path;
-      });
-
-      modulesContainer.appendChild(card);
-    });
+function renderModules(filter = "") {
+  if (!modulesContainer) {
+    console.warn("modulesContainer not found in DOM.");
+    return;
   }
+
+  modulesContainer.innerHTML = "";
+
+  const filtered = modules.filter(m =>
+    m.module_name.toLowerCase().includes(filter.toLowerCase())
+  );
+
+  if (filtered.length === 0) {
+    modulesContainer.innerHTML = `<p style="padding:1rem; text-align:center; color:gray;">No modules found.</p>`;
+    return;
+  }
+
+  filtered.forEach((mod, i) => {
+    const card = document.createElement("div");
+    card.className = "module-card fade-in";
+    card.style.animationDelay = `${i * 40}ms`;
+    card.innerHTML = `
+      <div class="icon">${getIconHTML(mod.icon_module, mod.module_name)}</div>
+      <div class="name">${mod.module_name}</div>
+    `;
+
+    card.addEventListener("click", () => {
+      window.location.href = mod.path;
+    });
+
+    modulesContainer.appendChild(card);
+  });
+}
 
   renderModules();
 

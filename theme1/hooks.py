@@ -45,19 +45,15 @@ app_include_css = [
     ]
 
 website_include_css = [
-    # "/assets/theme1/css/module.css",
+    "/assets/theme1/css/module.css",
     "/assets/theme1/css/login.bundle.css",
     "/assets/theme1/css/theme.css",
 ]
 app_include_js = [
-    # "/assets/theme1/js/module.js",    
-"/assets/theme1/js/modern_menu.js",         
+    "/assets/theme1/js/module.js",    
+    "/assets/theme1/js/modern_menu.js",         
     "/assets/theme1/js/page_custom.js",
-    # "https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"
-    # "/assets/theme1/js/use_lucide_for_erp.js"       
-    # "/assets/theme1/js/feather.min.js",         
-    # "/assets/theme1/js/use_feather_for_erp.js" ,
-#    "/assets/theme1/js/use_heroicons.js" 
+
 ]
 
 override_whitelisted_methods = {
