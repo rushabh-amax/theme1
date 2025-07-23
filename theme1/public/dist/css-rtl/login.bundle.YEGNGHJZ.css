@@ -1,4 +1,4 @@
-/* ../../../../../../tmp/tmp-4819-eGfqv1BJh7D9/theme1/theme1/public/css/login.bundle.css */
+/* ../../../../../../tmp/tmp-32568-JeIgbpHm63VO/theme1/theme1/public/css/login.bundle.css */
 [role=search],
 .dropdown-notifications,
 .dropdown-help,
@@ -21,7 +21,7 @@ body[frappe-session-status=logged-out] .navbar-light {
   height: 80px;
   position: fixed;
   top: 0;
-  left: 0;
+  right: 0;
 }
 body[frappe-session-status=logged-out] .page-card-actions .btn.btn-sm.btn-primary.btn-block.btn-login,
 body[frappe-session-status=logged-out] .page-card-actions .btn-forgot {
@@ -34,7 +34,7 @@ body[frappe-session-status=logged-out] .login-divider {
 }
 body[frappe-session-status=logged-out] .btn-login-with-email-link {
   background: transparent !important;
-  text-align: right;
+  text-align: left;
 }
 body[frappe-session-status=logged-out][data-path=login] .for-login,
 body[frappe-session-status=logged-out] .for-login-with-email-link,
@@ -83,4 +83,4 @@ body[frappe-session-status=logged-out][data-path=login] .page-card-head h4 {
   margin-top: .5em;
   margin-bottom: 1em;
 }
-/*# sourceMappingURL=login.bundle.WELPUBTQ.css.map */
+/*# sourceMappingURL=login.bundle.YEGNGHJZ.css.map */
