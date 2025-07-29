@@ -1,27 +1,14 @@
-function waitForSidebarAndRemoveColClass() {
-  const sidebar = document.querySelector(".layout-side-section");
-
-  if (!sidebar) {
-    // Retry until sidebar is available
-    setTimeout(waitForSidebarAndRemoveColClass, 100);
-    return;
-  }
-
-  // Confirm it's there and remove
-  if (sidebar.classList.contains("col-lg-2")) {
-    sidebar.classList.remove("col-lg-2");
-    console.log("Removed col-lg-2 from sidebar");
-  } else {
-    console.log("Sidebar doesn't have col-lg-2");
-  }
-}
-
-document.addEventListener("DOMContentLoaded", waitForSidebarAndRemoveColClass);
-
-
-
-
 function initSidebarToggleButton() {
+  
+
+  const currentPath = window.location.pathname;
+
+  const appRootRouteRegex = /^\/app\/[^/]+$/;
+
+  if (!appRootRouteRegex.test(currentPath)) {
+    return; // 🚫 Don't show toggle if not /app/single
+  }
+
   const sidebar = document.querySelector(".layout-side-section");
   const pageHead = document.querySelector(".page-head-content");
 
@@ -31,16 +18,18 @@ function initSidebarToggleButton() {
     return;
   }
 
-  // Create the toggle button
+  // ✅ Avoid adding the button multiple times
+  if (pageHead.querySelector(".custom-sidebar-toggle")) return;
+
+  // ✅ Create the toggle button
   const toggleButton = document.createElement("button");
   toggleButton.innerHTML = "☰";
-  toggleButton.className = "btn btn-outline-secondary btn-sm me-2"; // Bootstrap styles
+  toggleButton.className = "btn btn-outline-secondary btn-sm me-2 custom-sidebar-toggle";
   toggleButton.title = "Toggle Sidebar";
 
-  // Insert it at the beginning of page-head-content
+  // ✅ Insert at the beginning of page head
   pageHead.prepend(toggleButton);
 
-  // Track state
   let isExpanded = true;
 
   toggleButton.addEventListener("click", function () {
@@ -48,34 +37,40 @@ function initSidebarToggleButton() {
 
     if (isExpanded) {
       expandSidebar(sidebar);
-
     } else {
-  
       collapseSidebar(sidebar);
     }
   });
 }
+
+// 🔁 Run after page loads
+frappe.after_ajax(() => {
+  initSidebarToggleButton();
+});
+
+
+
 function collapseSidebar(sidebar) {
-  sidebar.classList.add("w-60px" , "px-2");
+  sidebar.classList.add("w-60px", "px-2");
   sidebar.classList.remove("col-lg-2", "col-md-3");
 
   document.querySelectorAll(".standard-sidebar-item .sidebar-item-label").forEach(el => {
     el.classList.add("d-none");
   });
+
   document.querySelectorAll(".sidebar-item-icon .icon").forEach(el => {
     el.style.transform = "scale(1.15)";
-    el.classList.add("ml-3")
-    el.classList.remove("icon-md")
-    el.classList.add("icon-lg")
-
+    // el.classList.add("ml-3");
+    el.classList.remove("icon-md");
+    el.classList.add("icon-lg");
     el.style.transition = "transform 0.2s ease";
   });
 
-  
-  document.querySelectorAll("data-page-route=Workspaces] .standard-sidebar-item .item-anchor ").forEach(el => {
+  // ✅ Corrected selector here
+  document.querySelectorAll('[data-page-route="Workspaces"] .standard-sidebar-item .item-anchor').forEach(el => {
     el.style.alignItems = 'center';
     el.style.justifyContent = 'center';
-  })
+  });
 
   document.querySelectorAll(".standard-sidebar-item").forEach(el => {
     el.classList.add("justify-content-center");
@@ -84,6 +79,7 @@ function collapseSidebar(sidebar) {
 
   console.log("Sidebar collapsed");
 }
+
 
 function expandSidebar(sidebar) {
   sidebar.classList.remove("col-auto");
@@ -143,4 +139,49 @@ function movePageHeadContent() {
 
 // Run it after DOM is ready
 document.addEventListener("DOMContentLoaded", movePageHeadContent);
+
+
+
+
+
+// function restructureLayout() {
+//   const navbarLogo = document.querySelector(".navbar-brand.navbar-home");
+//   if (!navbarLogo) return;
+
+//   const sidebarLayouts = document.querySelectorAll(".layout-side-section");
+
+//   for (const layout of sidebarLayouts) {
+//     const listSidebar = layout.querySelector(".list-sidebar");
+//     if (listSidebar && !layout.contains(navbarLogo)) {
+//       layout.prepend(navbarLogo); // insert at top
+//       console.log("Navbar logo moved to top of sidebar layout.");
+//       break;
+//     }
+//   }
+// }
+
+// // Watch for dynamically loaded sidebar
+// const observer = new MutationObserver(() => {
+//   restructureLayout();
+// });
+
+// observer.observe(document.body, {
+//   childList: true,
+//   subtree: true,
+// });
+
+// // Run once on load too
+// document.addEventListener("DOMContentLoaded", restructureLayout);
+
+
+
+// function restrctureLayout() {
+//   const navbarLogo = document.querySelector(".navbar-brand.navbar-home");
+//   const sidebarLayout = document.querySelector(".layout-side-section:has(.list-sidebar)");
+//   sidebarLayout.appendChild(navbarLogo);
+// }
+
+// document.addEventListener("DOMContentLoaded", restrctureLayout);
+
+
 

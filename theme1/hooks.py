@@ -42,15 +42,21 @@ app_include_css = [
     "/assets/theme1/css/module.css",         
     "/assets/theme1/css/login.bundle.css",   
     "/assets/theme1/css/theme.css",          
-    ]
+]
 
 website_include_css = [
     "/assets/theme1/css/module.css",
     "/assets/theme1/css/login.bundle.css",
     "/assets/theme1/css/theme.css",
 ]
+
+doctype_list_js = {
+    "File": "public/js/file_tree.js"
+}
+
 app_include_js = [
     "/assets/theme1/js/module.js",    
+      "/assets/theme1/js/file_tree.js",
     "/assets/theme1/js/modern_menu.js",         
     "/assets/theme1/js/page_custom.js",
 

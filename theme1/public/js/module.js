@@ -83,111 +83,111 @@
 // });
 
 
-document.addEventListener("DOMContentLoaded", function () {
-  const navbar = document.querySelector(".navbar-right");
+// document.addEventListener("DOMContentLoaded", function () {
+//   const navbar = document.querySelector(".navbar-right");
 
-  if (navbar) {
-    const moduleBtn = document.createElement("button");
-    moduleBtn.innerText = "Modules";
-    moduleBtn.className = "btn btn-sm btn-primary ml-2";
-    moduleBtn.style.marginLeft = "10px";
+//   if (navbar) {
+//     const moduleBtn = document.createElement("button");
+//     moduleBtn.innerText = "Modules";
+//     moduleBtn.className = "btn btn-sm btn-primary ml-2";
+//     moduleBtn.style.marginLeft = "10px";
 
-    moduleBtn.addEventListener("click", () => {
-      window.location.href = "/module"; // change this to your module route
-    });
+//     moduleBtn.addEventListener("click", () => {
+//       window.location.href = "/module"; // change this to your module route
+//     });
 
-    navbar.prepend(moduleBtn); // Add to left side
-  } else {
-    console.warn("Navbar not found.");
-  }
-});
-
-
+//     navbar.prepend(moduleBtn); // Add to left side
+//   } else {
+//     console.warn("Navbar not found.");
+//   }
+// });
 
 
-document.addEventListener("DOMContentLoaded", function () {
-  const modulesContainer = document.getElementById("modules-container");
-  const searchBox = document.getElementById("search-box");
 
-  // ✅ Manual HIMS modules: name, icon (feather), path
-  const modules = [
-    { module_name: "OPD", icon_module: "activity.svg", path: "/app/opd" },
-    { module_name: "IPD", icon_module: "home.svg", path: "/app/ipd" },
-    { module_name: "Pharmacy", icon_module: "package.svg", path: "/app/pharmacy" },
-    { module_name: "Laboratory", icon_module: "thermometer.svg", path: "/app/lab-test" },
-    { module_name: "Radiology", icon_module: "image.svg", path: "/app/radiology" },
-    { module_name: "Billing", icon_module: "credit-card.svg", path: "/app/sales-invoice" },
-    { module_name: "Appointments", icon_module: "calendar.svg", path: "/app/appointment" },
-    { module_name: "Doctors", icon_module: "user.svg", path: "/app/healthcare-practitioner" },
-    { module_name: "Patients", icon_module: "users.svg", path: "/app/patient" },
-    { module_name: "Nursing", icon_module: "heart.svg", path: "/app/nursing" },
-    { module_name: "Invoicing", icon_module: "file-text.svg", path: "/app/sales-invoice" },
-    { module_name: "Inventory", icon_module: "layers.svg", path: "/app/item" },
-    { module_name: "Vitals", icon_module: "activity.svg", path: "/app/patient-vital" },
-    { module_name: "Reports", icon_module: "bar-chart-2.svg", path: "/app/query-report" }
-  ];
 
-  const getIconHTML = (icon_module, module_name) => {
-    return `<img src="/assets/theme1/feather-main/icons/${icon_module}" 
-                 onerror="this.src='/assets/theme1/feather-main/icons/help-circle.svg'" 
-                 alt="${module_name}" 
-                 class="svg-icon" />`;
-  };
+// document.addEventListener("DOMContentLoaded", function () {
+//   const modulesContainer = document.getElementById("modules-container");
+//   const searchBox = document.getElementById("search-box");
 
-function renderModules(filter = "") {
-  if (!modulesContainer) {
-    console.warn("modulesContainer not found in DOM.");
-    return;
-  }
+//   // ✅ Manual HIMS modules: name, icon (feather), path
+//   const modules = [
+//     { module_name: "OPD", icon_module: "activity.svg", path: "/app/opd" },
+//     { module_name: "IPD", icon_module: "home.svg", path: "/app/ipd" },
+//     { module_name: "Pharmacy", icon_module: "package.svg", path: "/app/pharmacy" },
+//     { module_name: "Laboratory", icon_module: "thermometer.svg", path: "/app/lab-test" },
+//     { module_name: "Radiology", icon_module: "image.svg", path: "/app/radiology" },
+//     { module_name: "Billing", icon_module: "credit-card.svg", path: "/app/sales-invoice" },
+//     { module_name: "Appointments", icon_module: "calendar.svg", path: "/app/appointment" },
+//     { module_name: "Doctors", icon_module: "user.svg", path: "/app/healthcare-practitioner" },
+//     { module_name: "Patients", icon_module: "users.svg", path: "/app/patient" },
+//     { module_name: "Nursing", icon_module: "heart.svg", path: "/app/nursing" },
+//     { module_name: "Invoicing", icon_module: "file-text.svg", path: "/app/sales-invoice" },
+//     { module_name: "Inventory", icon_module: "layers.svg", path: "/app/item" },
+//     { module_name: "Vitals", icon_module: "activity.svg", path: "/app/patient-vital" },
+//     { module_name: "Reports", icon_module: "bar-chart-2.svg", path: "/app/query-report" }
+//   ];
 
-  modulesContainer.innerHTML = "";
+//   const getIconHTML = (icon_module, module_name) => {
+//     return `<img src="/assets/theme1/feather-main/icons/${icon_module}" 
+//                  onerror="this.src='/assets/theme1/feather-main/icons/help-circle.svg'" 
+//                  alt="${module_name}" 
+//                  class="svg-icon" />`;
+//   };
 
-  const filtered = modules.filter(m =>
-    m.module_name.toLowerCase().includes(filter.toLowerCase())
-  );
+// function renderModules(filter = "") {
+//   if (!modulesContainer) {
+//     console.warn("modulesContainer not found in DOM.");
+//     return;
+//   }
 
-  if (filtered.length === 0) {
-    modulesContainer.innerHTML = `<p style="padding:1rem; text-align:center; color:gray;">No modules found.</p>`;
-    return;
-  }
+//   modulesContainer.innerHTML = "";
 
-  filtered.forEach((mod, i) => {
-    const card = document.createElement("div");
-    card.className = "module-card fade-in";
-    card.style.animationDelay = `${i * 40}ms`;
-    card.innerHTML = `
-      <div class="icon">${getIconHTML(mod.icon_module, mod.module_name)}</div>
-      <div class="name">${mod.module_name}</div>
-    `;
+//   const filtered = modules.filter(m =>
+//     m.module_name.toLowerCase().includes(filter.toLowerCase())
+//   );
 
-    card.addEventListener("click", () => {
-      window.location.href = mod.path;
-    });
+//   if (filtered.length === 0) {
+//     modulesContainer.innerHTML = `<p style="padding:1rem; text-align:center; color:gray;">No modules found.</p>`;
+//     return;
+//   }
 
-    modulesContainer.appendChild(card);
-  });
-}
+//   filtered.forEach((mod, i) => {
+//     const card = document.createElement("div");
+//     card.className = "module-card fade-in";
+//     card.style.animationDelay = `${i * 40}ms`;
+//     card.innerHTML = `
+//       <div class="icon">${getIconHTML(mod.icon_module, mod.module_name)}</div>
+//       <div class="name">${mod.module_name}</div>
+//     `;
 
-  renderModules();
+//     card.addEventListener("click", () => {
+//       window.location.href = mod.path;
+//     });
 
-  searchBox.addEventListener("input", (e) => {
-    renderModules(e.target.value);
-  });
+//     modulesContainer.appendChild(card);
+//   });
+// }
 
-  // ✅ Inject into user dropdown
-  const tryInjectButton = () => {
-    const userDropdown = document.querySelector(".dropdown-navbar-user .dropdown-menu");
-    if (!userDropdown || document.getElementById("nav-modules-link")) return;
+//   renderModules();
 
-    const menuItem = document.createElement("li");
-    menuItem.innerHTML = `
-      <a id="nav-modules-link" href="/module" style="display: flex; align-items: center;">
-        <img src="/assets/theme1/feather-main/icons/grid.svg" 
-             style="width:16px;height:16px;margin-right:6px;">
-        Go to Modules
-      </a>`;
-    userDropdown.insertBefore(menuItem, userDropdown.firstChild);
-  };
+//   searchBox.addEventListener("input", (e) => {
+//     renderModules(e.target.value);
+//   });
 
-  setTimeout(tryInjectButton, 1000);
-});
+//   // ✅ Inject into user dropdown
+//   const tryInjectButton = () => {
+//     const userDropdown = document.querySelector(".dropdown-navbar-user .dropdown-menu");
+//     if (!userDropdown || document.getElementById("nav-modules-link")) return;
+
+//     const menuItem = document.createElement("li");
+//     menuItem.innerHTML = `
+//       <a id="nav-modules-link" href="/module" style="display: flex; align-items: center;">
+//         <img src="/assets/theme1/feather-main/icons/grid.svg" 
+//              style="width:16px;height:16px;margin-right:6px;">
+//         Go to Modules
+//       </a>`;
+//     userDropdown.insertBefore(menuItem, userDropdown.firstChild);
+//   };
+
+//   setTimeout(tryInjectButton, 1000);
+// });
