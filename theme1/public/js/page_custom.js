@@ -185,3 +185,38 @@ document.addEventListener("DOMContentLoaded", movePageHeadContent);
 
 
 
+
+
+
+
+// Run on window resize
+window.addEventListener('resize', updateSidebarClasses);
+
+
+
+
+// not working
+// function reCreateImgToVideo() {
+//   const msgBox_Div = document.querySelector(".msg-box");
+
+//   if (!msgBox_Div) return;
+
+//   const img = msgBox_Div.querySelector("img.null-state");
+
+//   if (img) {
+//     const video = document.createElement("video");
+//     video.src = "/images/file.mp4"; // this will look inside /public/images/
+//     video.autoplay = true;
+//     video.loop = true;
+//     video.muted = true;
+//     video.playsInline = true;
+//     video.style.width = "100px"; // Adjust size as needed
+//     video.style.height = "auto";
+
+//     img.parentNode.replaceChild(video, img);
+//   }
+// }
+
+
+// reCreateImgToVideo();
+
