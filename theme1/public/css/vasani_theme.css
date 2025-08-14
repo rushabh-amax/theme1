@@ -68,7 +68,7 @@
     --timeline-badge-color: oklch(var(--base-l) var(--base-c) var(--base-h),.25);
     --dark-border-color:oklch(97% 0.05 var(--base-h));
     --sidebar-select-color:oklch(97% 0.05 var(--base-h) / 0.09) ;
-    --subtle-fg:#a5dd9cd3 ;
+    --subtle-fg:#a5dd9c ;
       
     --control-bg:  oklch(5% 0.05 var(--base-h));
     --primary_clr:     oklch(var(--base-l) var(--base-c) var(--base-h));
@@ -231,7 +231,7 @@
  --disabled-control-bg:transparent;
 }
 
-[data-theme="healthcare_theme"]{
+[data-theme="vasani_theme"]{
   --fg-color:transparent;
 
 
@@ -428,20 +428,20 @@
 
 
 
-[data-theme="healthcare_theme"] [data-label="New"],
-[data-theme="healthcare_theme"] [data-label="Edit"] {
+[data-theme="vasani_theme"] [data-label="New"],
+[data-theme="vasani_theme"] [data-label="Edit"] {
   line-height: 0 !important;
 }
-[data-theme="healthcare_theme"] [data-label="New"] svg  use {
+[data-theme="vasani_theme"] [data-label="New"] svg  use {
   --icon-stroke: white !important;
   --icon-fill: white !important;
 }
-[data-theme="healthcare_theme"] .btn-new-workspace {
+[data-theme="vasani_theme"] .btn-new-workspace {
   color:#28a745;
   background: #000 ;
 }
 
-[data-theme="healthcare_theme"]  .btn .btn-primary .btn-sm .primary-action {
+[data-theme="vasani_theme"]  .btn .btn-primary .btn-sm .primary-action {
     --active_txt_clr: #000;
     background: whitesmoke !important;
     padding: .5em .75em !important;
@@ -453,28 +453,28 @@
     /* color: var(--active_txt_clr); */
     color: black !important;
   }
-[data-theme="healthcare_theme"]  .btn .btn-primary .btn-sm .primary-action span {
+[data-theme="vasani_theme"]  .btn .btn-primary .btn-sm .primary-action span {
     --active_txt_clr: var(--default_clr);
     /* color: var(--active_txt_clr); */
     color: white !important;
   }
-[data-theme="healthcare_theme"] div#driver-popover-item .driver-popover-footer .driver-close-btn{
+[data-theme="vasani_theme"] div#driver-popover-item .driver-popover-footer .driver-close-btn{
   background: rgba(var(--cancle),.15) !important;
   color: rgba(var(--cancle)) !important;
   padding-inline: .5em !important;
 }
 
-[data-theme="healthcare_theme"] .btn-remove-perm{
+[data-theme="vasani_theme"] .btn-remove-perm{
   background: rgba(var(--cancle),.75) !important;
 
   color: rgba(var(--cancle)) !important;
   padding-inline: .5em !important;
 }
-[data-theme="healthcare_theme"]  rect.day {
+[data-theme="vasani_theme"]  rect.day {
 
     fill: var(--default_clr );
 }
-[data-theme="healthcare_theme"] .btn.btn-secondary {
+[data-theme="vasani_theme"] .btn.btn-secondary {
     background:var(--secondry_clr) !important;
     padding: .5em .5em !important;
     
@@ -482,7 +482,7 @@
   }
 
   [data-theme="light"] .btn.btn-default ,
-  [data-theme="healthcare_theme"] .btn.btn-default {
+  [data-theme="vasani_theme"] .btn.btn-default {
     background:var(--default_clr) !important;
     padding: .5em .5em !important;
     height: 40px !important;
@@ -499,22 +499,22 @@
     --icon-fill:white !important;
     --icon-stroke:white !important;
   } */
-  [data-theme="healthcare_theme"] .btn.btn-default:hover{
+  [data-theme="vasani_theme"] .btn.btn-default:hover{
     background: #a0b10c !important;
   }
     [data-theme="light"] .btn.btn-default use {
     --icon-stroke:black;
     --icon-fill:black;
   }
-  [data-theme="healthcare_theme"] .btn.btn-default use {
+  [data-theme="vasani_theme"] .btn.btn-default use {
     --icon-stroke:white;
     --icon-fill:white;
   }
 
-[data-theme="healthcare_theme"] .btn.btn-default span{
+[data-theme="vasani_theme"] .btn.btn-default span{
   color: white !important;
 }
-[data-theme="healthcare_theme"] .btn.btn-primary {
+[data-theme="vasani_theme"] .btn.btn-primary {
   
     background:#036100!important;
     padding: .5em .5em !important;
@@ -522,39 +522,39 @@
       /* line-height: 2; */
     transition: 250ms ease all;
   }
-  [data-theme="healthcare_theme"] .btn.btn-primary:hover {
+  [data-theme="vasani_theme"] .btn.btn-primary:hover {
     background:#a0b10c !important;
   }
-    [data-theme="healthcare_theme"] .btn.btn-primary:hover  svg {
+    [data-theme="vasani_theme"] .btn.btn-primary:hover  svg {
       --icon-stoke:white !important;
       --icon-fill:white !important;
 
   }
-[data-theme="healthcare_theme"] .btn.btn-primary span{
+[data-theme="vasani_theme"] .btn.btn-primary span{
     /* color: var(--active_txt_clr) !important; */
     color: white !important;
   }
-[data-theme="healthcare_theme"] .btn-sm{
+[data-theme="vasani_theme"] .btn-sm{
     background:var(--default_clr) !important;
     padding: .5em .5em !important;
   }
-[data-theme="healthcare_theme"] .btn.btn-primary[data-label="Save"],
-[data-theme="healthcare_theme"] .add-btn-text {
+[data-theme="vasani_theme"] .btn.btn-primary[data-label="Save"],
+[data-theme="vasani_theme"] .add-btn-text {
     background: rgb(0 157 0) !important;
     padding: .5em .75em !important;
       /* line-height: 2; */
       border: unset;
   }
 
-[data-theme="healthcare_theme"] #toolbar-user:last-child{
+[data-theme="vasani_theme"] #toolbar-user:last-child{
     color: rgba(var(--cancle),.25) !important;
   }
-[data-theme="healthcare_theme"] .btn[data-label="Discard"]{
+[data-theme="vasani_theme"] .btn[data-label="Discard"]{
     background:rgba(var(--cancle) , .75) !important;
     padding: .5em .75em !important;
       /* line-height: 2; */
   }
-[data-theme="healthcare_theme"] .btn.filter-chart{
+[data-theme="vasani_theme"] .btn.filter-chart{
     background:#ffe3b0 !important;
     padding: .65em .75em !important;
      } 
@@ -563,11 +563,11 @@
     background: orange;
     padding: 0.65em !important;
 } */
-[data-theme="healthcare_theme"] .btn.btn-secondary.clear-filters{
+[data-theme="vasani_theme"] .btn.btn-secondary.clear-filters{
       background: rgba(var(--cancle),.15) !important;
       color: rgba(var(--cancle)) !important;
      }
-[data-theme="healthcare_theme"] .filter-label{
+[data-theme="vasani_theme"] .filter-label{
       border-radius: .35em !important;
     padding: 0em .5em !important;
     margin-left: .35em  !important;
@@ -579,13 +579,13 @@
 ;
     flex-wrap: wrap;
     overflow-x: scroll; */
-[data-theme="healthcare_theme"] .grid-download.btn{
+[data-theme="vasani_theme"] .grid-download.btn{
           background: #b1ffa8 !important;
   }
- [data-theme="healthcare_theme"] .grid-upload.btn{
+ [data-theme="vasani_theme"] .grid-upload.btn{
         background: #ffc9ae !important;
    }
-[data-theme="healthcare_theme"] .add-filter.btn {
+[data-theme="vasani_theme"] .add-filter.btn {
     background:#ffe3b0 !important;
     color: #7f5241 !important;
    }
@@ -597,17 +597,17 @@
 /* ----------------------------------------------------------------------
 popup's btn's 
 -------------------------------------------------------------------------*/
-[data-theme="healthcare_theme"] [data-dismiss="modal"] svg use.close-alt,
+[data-theme="vasani_theme"] [data-dismiss="modal"] svg use.close-alt,
  .btn-danger svg use[href = "icon-delete"]{
     --icon-stroke: rgba(var(--cancle));
    color: var(--icon-stroke) !important;
 }
 
-[data-theme="healthcare_theme"] .liked use.like-icon{
+[data-theme="vasani_theme"] .liked use.like-icon{
       --icon-stroke: rgb(255, 91, 91) !important;
 }
 
-[data-theme="healthcare_theme"] [data-dismiss="modal"]{
+[data-theme="vasani_theme"] [data-dismiss="modal"]{
     --primary: rgba(var(--cancle),.15);
    background: var(--primary) !important;
 }
@@ -616,17 +616,17 @@ popup's btn's
 /* ----------------------------------------------------------------------
 driver's btn's 
 -------------------------------------------------------------------------*/
-[data-theme="healthcare_theme"] .driver-close-btn,
-[data-theme="healthcare_theme"] .btn.btn-danger.btn-sm.pull-right.grid-delete-row{
+[data-theme="vasani_theme"] .driver-close-btn,
+[data-theme="vasani_theme"] .btn.btn-danger.btn-sm.pull-right.grid-delete-row{
   background: rgba(var(--cancle),.15) !important;
   color: rgba(var(--cancle)) !important;
   padding-inline: .5em !important;
 } 
-[data-theme="healthcare_theme"] .driver-next-btn{
+[data-theme="vasani_theme"] .driver-next-btn{
   background: var(--primary_clr) !important;
   color: var(--active_txt_clr) !important;
 }
-[data-theme="healthcare_theme"] .driver-prev-btn{
+[data-theme="vasani_theme"] .driver-prev-btn{
   background: var(--default_clr) !important;
 }
 
@@ -634,35 +634,35 @@ driver's btn's
 /* ==========================================================================
  onboarding styl's 
  ===========================================================================*/
-[data-theme="healthcare_theme"] .onboarding-step svg.es-icon{
+[data-theme="vasani_theme"] .onboarding-step svg.es-icon{
   --icon-stroke: var(--success);
    color: var(--icon-stroke) !important;
 }
 
-[data-theme="healthcare_theme"] .widget.onboarding-widget-box .widget-body .onboarding-step.skipped {
+[data-theme="vasani_theme"] .widget.onboarding-widget-box .widget-body .onboarding-step.skipped {
     color: #ff6565;
     background-color: #ffd2d2;
 }
-[data-theme="healthcare_theme"] .widget.onboarding-widget-box .widget-body .onboarding-step.complete{
+[data-theme="vasani_theme"] .widget.onboarding-widget-box .widget-body .onboarding-step.complete{
    color: #036100;
     background-color: #c9e0c8;
 }
-[data-theme="healthcare_theme"] .onboarding-step.skipped svg.es-icon {
+[data-theme="vasani_theme"] .onboarding-step.skipped svg.es-icon {
     --icon-stroke: #e03636 !important;
     color: var(--icon-stroke) !important; 
 }
-[data-theme="healthcare_theme"] .widget-control.indicator-pill.no-indicator-dot{
+[data-theme="vasani_theme"] .widget-control.indicator-pill.no-indicator-dot{
   position: absolute;
   bottom: 0;
   right: .25em;
   scale: .85;
   z-index: 1;
 }
-[data-theme="healthcare_theme"] #nav-modules-link {
+[data-theme="vasani_theme"] #nav-modules-link {
   font-weight: 500;
   color: var(--primary_clr) !important;
 }
-/* [data-theme="healthcare_theme"] #nav-modules-link:hover {
+/* [data-theme="vasani_theme"] #nav-modules-link:hover {
   background-color: red;
 } */
 
@@ -705,7 +705,7 @@ driver's btn's
 
 
 
-/* [data-theme="healthcare_theme"] 
+/* [data-theme="vasani_theme"] 
 .sidebar-item-container 
 .desk-sidebar-item:not(.standard-sidebar-item.selected ):hover {
   scale: 0.95;
@@ -720,30 +720,30 @@ driver's btn's
   color: var(--active_txt_clr);
       overflow: unset;
 }
-[data-theme="healthcare_theme"] .standard-sidebar-item:hover:not(.standard-sidebar-item.selected:hover){
+[data-theme="vasani_theme"] .standard-sidebar-item:hover:not(.standard-sidebar-item.selected:hover){
   scale: .95;
 }
 
-[data-theme="healthcare_theme"] .standard-sidebar-item.selected .item-anchor .sidebar-item-label,
-[data-theme="healthcare_theme"] .standard-sidebar-item.active.selected .sidebar-link
+[data-theme="vasani_theme"] .standard-sidebar-item.selected .item-anchor .sidebar-item-label,
+[data-theme="vasani_theme"] .standard-sidebar-item.active.selected .sidebar-link
 {
   /* color: var(--active_txt_clr) !important; */
   color: white !important;
 
 }
-[data-theme="healthcare_theme"] .desk-sidebar-item.standard-sidebar-item.selected .sidebar-item-icon svg,
-[data-theme="healthcare_theme"] .standard-sidebar-item.active.selected svg.icon  use {
+[data-theme="vasani_theme"] .desk-sidebar-item.standard-sidebar-item.selected .sidebar-item-icon svg,
+[data-theme="vasani_theme"] .standard-sidebar-item.active.selected svg.icon  use {
   --icon-stroke:white !important;
 
   /* --icon-stroke:var(--active_txt_clr); */
   /* color: var(--active_txt_clr) !important; */
 }
-[data-theme="healthcare_theme"] .desk-sidebar-item.standard-sidebar-item.selected .sidebar-item-icon svg.drop-icon use,
-[data-theme="healthcare_theme"] .standard-sidebar-item.active.selected svg.drop-icon use {
+[data-theme="vasani_theme"] .desk-sidebar-item.standard-sidebar-item.selected .sidebar-item-icon svg.drop-icon use,
+[data-theme="vasani_theme"] .standard-sidebar-item.active.selected svg.drop-icon use {
   stroke: var(--active_txt_clr) !important;
 }
 
-[data-theme="healthcare_theme"] .desk-sidebar-item.standard-sidebar-item.selected .sidebar-item-icon .icon .es-icon {
+[data-theme="vasani_theme"] .desk-sidebar-item.standard-sidebar-item.selected .sidebar-item-icon .icon .es-icon {
   --icon-stroke:var(--active_txt_clr);
   /* color: var(--active_txt_clr) !important; */
 }
@@ -777,10 +777,10 @@ display: none !important;
   background: var(--active_txt_clr);
 } 
 
-[data-theme="healthcare_theme"] .navbar{
+[data-theme="vasani_theme"] .navbar{
         height: 90px;
 }
-[data-theme="healthcare_theme"] [role="search"],
+[data-theme="vasani_theme"] [role="search"],
 [data-theme="light"] [role="search"],
 [data-theme="dark"] [role="search"]
 {
@@ -789,10 +789,10 @@ display: none !important;
     align-items: center;
     justify-content: end ;
 }
-[data-theme="healthcare_theme"] [role="search"] .search-bar{
+[data-theme="vasani_theme"] [role="search"] .search-bar{
     max-width: 250px !important;
 }
-[data-theme="healthcare_theme"]  .like-disabled-input {
+[data-theme="vasani_theme"]  .like-disabled-input {
 
     background-color: var(--disabled-control-bg);
         filter: grayscale(.5);
@@ -831,45 +831,45 @@ select,
     border-radius: 50em;
 }
 
-[data-theme="healthcare_theme"] .search-bar input:focus{
+[data-theme="vasani_theme"] .search-bar input:focus{
     border-radius: 10em !important  ;
 }
-[data-theme="healthcare_theme"] .list-sidebar .list-filters input:not([data-fieldtype=Check]){
+[data-theme="vasani_theme"] .list-sidebar .list-filters input:not([data-fieldtype=Check]){
   background-color:#dae75dc2;
 }
-[data-theme="healthcare_theme"] .dropdown-help{
+[data-theme="vasani_theme"] .dropdown-help{
   order:2;
 }
-[data-theme="healthcare_theme"] .dropdown-navbar-user{
+[data-theme="vasani_theme"] .dropdown-navbar-user{
     height: 50px;
     aspect-ratio: 1;
     border-radius: 50em;
 }
-[data-theme="healthcare_theme"] .dropdown-navbar-user button{
+[data-theme="vasani_theme"] .dropdown-navbar-user button{
     height: 100%;
     width: 100%;
     border-radius: 50em;
     padding: 0;
 }
-[data-theme="healthcare_theme"] .avatar .standard-image {
+[data-theme="vasani_theme"] .avatar .standard-image {
     border-radius: 50em;
     height: 100%;
     width: 100%;
 }
-[data-theme="healthcare_theme"] .navbar-expand .navbar-nav .avatar-medium {
+[data-theme="vasani_theme"] .navbar-expand .navbar-nav .avatar-medium {
     height: 100%;
     width: 100%;
     border-radius: 50em;
 }
 
-[data-theme="healthcare_theme"] .navbar-expand .navbar-nav .avatar-frame{
+[data-theme="vasani_theme"] .navbar-expand .navbar-nav .avatar-frame{
     height: 100%;
     width: 100%;
     border-radius: 50em;
 
 }
 
-[data-theme="healthcare_theme"] .ce-block__content{
+[data-theme="vasani_theme"] .ce-block__content{
 transition: var(--animation-ease);
 }
 
@@ -877,10 +877,10 @@ transition: var(--animation-ease);
 
 
 /* shortcut-widget-box */
-[data-theme="healthcare_theme"] .shortcut-widget-box{
+[data-theme="vasani_theme"] .shortcut-widget-box{
   background: transparent !important;
 }
-[data-theme="healthcare_theme"] .shortcut-widget-box {
+[data-theme="vasani_theme"] .shortcut-widget-box {
   position: relative;
   height: 40px;
   padding: .25em .75em;
@@ -899,7 +899,7 @@ transition: var(--animation-ease);
   isolation: isolate;
 }
 
-[data-theme="healthcare_theme"] .shortcut-widget-box::after{
+[data-theme="vasani_theme"] .shortcut-widget-box::after{
   background: #036100;
   content: "";
   position: absolute;
@@ -909,12 +909,12 @@ transition: var(--animation-ease);
   z-index: 0;
   transition: 250ms cubic-bezier(0.175, 0.885, 0.32, 1.275) top;
 }
-[data-theme="healthcare_theme"] .shortcut-widget-box:hover::after{
+[data-theme="vasani_theme"] .shortcut-widget-box:hover::after{
   top: 0%;
 }
 
 
-[data-theme="healthcare_theme"] .shortcut-widget-box .widget-head {
+[data-theme="vasani_theme"] .shortcut-widget-box .widget-head {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -923,14 +923,14 @@ transition: var(--animation-ease);
   position: relative;
 }
 
-[data-theme="healthcare_theme"] .shortcut-widget-box .widget-title {
+[data-theme="vasani_theme"] .shortcut-widget-box .widget-title {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-[data-theme="healthcare_theme"] .shortcut-widget-box .widget-title span {
+[data-theme="vasani_theme"] .shortcut-widget-box .widget-title span {
   transition: all 0.25s ease;
   position: relative;
 
@@ -940,7 +940,7 @@ transition: var(--animation-ease);
 }
 
 /* ICON Styling */
-[data-theme="healthcare_theme"] .shortcut-widget-box .widget-control {
+[data-theme="vasani_theme"] .shortcut-widget-box .widget-control {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -952,7 +952,7 @@ transition: var(--animation-ease);
   justify-content: center;
 }
 
-[data-theme="healthcare_theme"] .shortcut-widget-box .widget-control svg {
+[data-theme="vasani_theme"] .shortcut-widget-box .widget-control svg {
   font-size: 18px;
   height: 18px;
   width: 18px;
@@ -963,16 +963,16 @@ transition: var(--animation-ease);
 
 
 /* On Hover */
-[data-theme="healthcare_theme"] .shortcut-widget-box:hover .widget-title span {
+[data-theme="vasani_theme"] .shortcut-widget-box:hover .widget-title span {
   opacity: 0;
   position: absolute;
 }
 
-[data-theme="healthcare_theme"] .shortcut-widget-box:hover .widget-control {
+[data-theme="vasani_theme"] .shortcut-widget-box:hover .widget-control {
   opacity: 1;
 }
 
-[data-theme="healthcare_theme"] .shortcut-widget-box:hover{
+[data-theme="vasani_theme"] .shortcut-widget-box:hover{
   /* background: var(--secondry_clr) !important; */
   color: white !important;
 }
@@ -980,30 +980,30 @@ transition: var(--animation-ease);
 
 
 /* leftover */
-[data-theme="healthcare_theme"] .widget-control .indicator-pill:not(.title-area) {
+[data-theme="vasani_theme"] .widget-control .indicator-pill:not(.title-area) {
   color: var(--active_txt_clr);
   background: var(--primary_clr);
 }
-[data-theme="healthcare_theme"] [data-page-route=Workspaces] .codex-editor .codex-editor__redactor .ce-block .ce-block__content .widget.spacer,
+[data-theme="vasani_theme"] [data-page-route=Workspaces] .codex-editor .codex-editor__redactor .ce-block .ce-block__content .widget.spacer,
 .dashboard-widget-box {
   border: unset !important;
   background: transparent !important;
 }
-[data-theme="healthcare_theme"] .links-widget-box .widget-body a:hover{
+[data-theme="vasani_theme"] .links-widget-box .widget-body a:hover{
   scale: .97;
 }
-[data-theme="healthcare_theme"] .links-widget-box .widget-body{
+[data-theme="vasani_theme"] .links-widget-box .widget-body{
   display: flex;
   align-self:start;
   justify-content: start;
   flex-wrap: wrap;
   gap: 1em;
 }
-[data-theme="healthcare_theme"] .widget.links-widget-box .link-item:first-child {
+[data-theme="vasani_theme"] .widget.links-widget-box .link-item:first-child {
     margin-top: 0px !important;
 }
 
-[data-theme="healthcare_theme"] .links-widget-box .widget-body a{
+[data-theme="vasani_theme"] .links-widget-box .widget-body a{
   background: var(--card-bg) !important;
   border-radius: 50em !important;
   padding-inline:.75em !important;
@@ -1013,35 +1013,35 @@ transition: var(--animation-ease);
   justify-content: center;
     transition: var(--animation-cubic);
 }
-[data-theme="healthcare_theme"] .links-widget-box .widget-body .es-icon{
+[data-theme="vasani_theme"] .links-widget-box .widget-body .es-icon{
   display: none !important;
 } 
-[data-theme="healthcare_theme"] .links-widget-box .widget-body a:hover span{
+[data-theme="vasani_theme"] .links-widget-box .widget-body a:hover span{
   color: #036100 !important;
 }
 
-[data-theme="healthcare_theme"] .links-widget-box  .widget-body a span{
+[data-theme="vasani_theme"] .links-widget-box  .widget-body a span{
 line-height: 2;
 
 }
 
-[data-theme="healthcare_theme"] #toolbar-user:last-child{
+[data-theme="vasani_theme"] #toolbar-user:last-child{
     color: rgba(var(--cancle),.25) !important;
   }
   
-[data-theme="healthcare_theme"] .widget.links-widget-box{
+[data-theme="vasani_theme"] .widget.links-widget-box{
         background: transparent;
     border-radius: 2em;
     padding: 2em;
   }
 
-[data-theme="healthcare_theme"] .widget .widget-head .widget-title span{
+[data-theme="vasani_theme"] .widget .widget-head .widget-title span{
     line-height: 2.5;
   }
 
 
   /* acc - number's */
-[data-theme="healthcare_theme"] .number-widget-box{
+[data-theme="vasani_theme"] .number-widget-box{
     display: flex;
     flex-direction: column-reverse;
     align-items: start;
@@ -1049,10 +1049,10 @@ line-height: 2;
     background: transparent !important;
     border: unset !important;
   }
-[data-theme="healthcare_theme"] .number-widget-box .widget-body{
+[data-theme="vasani_theme"] .number-widget-box .widget-body{
     width: 100%;
     }
-[data-theme="healthcare_theme"] .number-widget-box .widget-head{
+[data-theme="vasani_theme"] .number-widget-box .widget-head{
       display: flex;  
       align-items: center;
       justify-content: space-between;
@@ -1062,7 +1062,7 @@ line-height: 2;
       margin-top: .25em;
       padding-inline: .75em;
     }
-[data-theme="healthcare_theme"] .number-widget-box .number{
+[data-theme="vasani_theme"] .number-widget-box .number{
     text-align: center;
     font-size: 3vw !important;
   }
@@ -1075,33 +1075,29 @@ line-height: 2;
 /* .list-actions button{
   background: transparent !important;
 } */
- [data-theme="dark"] .list-row-col.ellipsis.list-subject.level,
- [data-theme="dark"] .list-row-head{
-  color: #000 !important;
- }
 .level.list-row:hover .list-actions{
   display: block !important;
 }
 
-[data-theme="healthcare_theme"] .form-sidebar-items button .es-icon,
-[data-theme="healthcare_theme"] .form-sidebar-items button.drop-icon svg use {
+[data-theme="vasani_theme"] .form-sidebar-items button .es-icon,
+[data-theme="vasani_theme"] .form-sidebar-items button.drop-icon svg use {
     --icon-stroke:var(--secondry_clr);
     --icon-fill:white;
 
   }
-[data-theme="healthcare_theme"] .std-form-layout > .form-layout > .form-page {
+[data-theme="vasani_theme"] .std-form-layout > .form-layout > .form-page {
     --card-bg:transparent;
 }
-[data-theme="healthcare_theme"] .grid-heading-row{
+[data-theme="vasani_theme"] .grid-heading-row{
   background: var(--active_txt_clr);
   color:black;
 }
-[data-theme="healthcare_theme"] .grid-heading-row use{
+[data-theme="vasani_theme"] .grid-heading-row use{
     --icon-stroke:black !important;
     --icon-fill:black !important;
     filter: brightness(300);
 }
-[data-theme="healthcare_theme"] .grid-footer, .grid-custom-buttons {
+[data-theme="vasani_theme"] .grid-footer, .grid-custom-buttons {
     --fg-color:var(--card-bg);
 }
 
@@ -1321,6 +1317,6 @@ option{
 
 
 
-[data-theme="healthcare_theme"] .control-value.like-disabled-input.for-description{
+[data-theme="vasani_theme"] .control-value.like-disabled-input.for-description{
   height:  fit-content !important;
 }

@@ -1,3 +1,65 @@
+const observer = new MutationObserver(() => {
+  const img = document.querySelector('.msg-box img[alt="Generic Empty State"]');
+
+  if (img) {
+    console.log('🖼️ Target image found — replacing with our image');
+
+    // Remove old image
+    const parent = img.parentNode;
+    img.remove();
+
+    // Create new image
+    const newImg = document.createElement('img');
+    newImg.src = 'https://cdn.dribbble.com/userupload/17090601/file/original-3bb1adf404d69287479b6be83d173624.jpg?resize=752x752&vertical=center';
+    newImg.alt = 'Custom Empty State';
+    newImg.style.width = '300px';
+    newImg.style.height = 'auto';
+    newImg.style.borderRadius = '8px';
+    newImg.style.objectFit = 'cover';
+
+    // Insert new image
+    parent.appendChild(newImg);
+
+    console.log('✅ Replaced with custom image and stopped observer');
+    observer.disconnect();
+  }
+});
+
+// Start observing the DOM for changes
+observer.observe(document.body, { childList: true, subtree: true });
+
+
+
+
+
+// Run on initial page load
+document.addEventListener("DOMContentLoaded", function () {
+  updateAppLogo();
+
+  // Observe DOM changes to re-apply logo if replaced dynamically
+  const observer = new MutationObserver(() => {
+    updateAppLogo();
+  });
+
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true,
+  });
+});
+
+function updateAppLogo() {
+  const appLogo = document.querySelector(".app-logo");
+
+  if (appLogo && !appLogo.dataset.customized) {
+    appLogo.src = "https://www.vasanipolymers.com/wp-content/uploads/2024/05/VASANI-Logo-1024x287.png";
+    appLogo.style.height = "auto";
+    appLogo.style.maxHeight = "40px";
+    appLogo.dataset.customized = "true"; // prevent re-applying
+  }
+}
+
+
+
 function initSidebarToggleButton() {
   
 
@@ -8,6 +70,7 @@ function initSidebarToggleButton() {
   if (!appRootRouteRegex.test(currentPath)) {
     return; // 🚫 Don't show toggle if not /app/single
   }
+
 
   const sidebar = document.querySelector(".layout-side-section");
   const pageHead = document.querySelector(".page-head-content");
@@ -24,7 +87,7 @@ function initSidebarToggleButton() {
   // ✅ Create the toggle button
   const toggleButton = document.createElement("button");
   toggleButton.innerHTML = "☰";
-  toggleButton.className = "btn btn-outline-secondary btn-sm me-2 custom-sidebar-toggle";
+  toggleButton.className = "custom-sidebar-toggle";
   toggleButton.title = "Toggle Sidebar";
 
   // ✅ Insert at the beginning of page head
@@ -117,7 +180,7 @@ function movePageHeadContent() {
   const observer = new MutationObserver(() => {
     const source = document.querySelector(".page-head-content");
     const target = document.querySelector(".layout-main-section-wrapper");
-    source.classList.add("py-2")
+    // source.classList.add("py-2")
 
     if (source && target) {
       // Move the source element into the target as the first child
@@ -144,79 +207,13 @@ document.addEventListener("DOMContentLoaded", movePageHeadContent);
 
 
 
-// function restructureLayout() {
-//   const navbarLogo = document.querySelector(".navbar-brand.navbar-home");
-//   if (!navbarLogo) return;
+// function removePageTItles(){
+//   const  pageTitle = document.querySelector(".page-title");
+//     // Start observing changes in the body subtree
+//   observer.observe(document.body, {
+//     childList: true,
+//     subtree: true,
+//   });
 
-//   const sidebarLayouts = document.querySelectorAll(".layout-side-section");
-
-//   for (const layout of sidebarLayouts) {
-//     const listSidebar = layout.querySelector(".list-sidebar");
-//     if (listSidebar && !layout.contains(navbarLogo)) {
-//       layout.prepend(navbarLogo); // insert at top
-//       console.log("Navbar logo moved to top of sidebar layout.");
-//       break;
-//     }
-//   }
 // }
-
-// // Watch for dynamically loaded sidebar
-// const observer = new MutationObserver(() => {
-//   restructureLayout();
-// });
-
-// observer.observe(document.body, {
-//   childList: true,
-//   subtree: true,
-// });
-
-// // Run once on load too
-// document.addEventListener("DOMContentLoaded", restructureLayout);
-
-
-
-// function restrctureLayout() {
-//   const navbarLogo = document.querySelector(".navbar-brand.navbar-home");
-//   const sidebarLayout = document.querySelector(".layout-side-section:has(.list-sidebar)");
-//   sidebarLayout.appendChild(navbarLogo);
-// }
-
-// document.addEventListener("DOMContentLoaded", restrctureLayout);
-
-
-
-
-
-
-
-// Run on window resize
-window.addEventListener('resize', updateSidebarClasses);
-
-
-
-
-// not working
-// function reCreateImgToVideo() {
-//   const msgBox_Div = document.querySelector(".msg-box");
-
-//   if (!msgBox_Div) return;
-
-//   const img = msgBox_Div.querySelector("img.null-state");
-
-//   if (img) {
-//     const video = document.createElement("video");
-//     video.src = "/images/file.mp4"; // this will look inside /public/images/
-//     video.autoplay = true;
-//     video.loop = true;
-//     video.muted = true;
-//     video.playsInline = true;
-//     video.style.width = "100px"; // Adjust size as needed
-//     video.style.height = "auto";
-
-//     img.parentNode.replaceChild(video, img);
-//   }
-// }
-
-
-// reCreateImgToVideo();
-
+// document.addEventListener("DOMContentLoaded", movePageHeadContent);

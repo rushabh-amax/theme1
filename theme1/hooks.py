@@ -1,5 +1,5 @@
 # Ensure this file gets loaded
-import theme1.api.module
+# import theme1.api.module
 
 app_name = "theme1"
 app_title = "Theme1"
