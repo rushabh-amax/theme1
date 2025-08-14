@@ -408,6 +408,21 @@
 
 /* btn's =========================================== */
 /* update */
+.btn{
+  transition: 250ms ease all;
+}
+.btn:hover{
+  scale: .99;
+}
+.chart-actions.dropdown.pull-right > button,
+.filter-chart.btn.btn-xs.pull-right{
+  margin-bottom: .65em !important;
+}
+.btn.btn-default.btn-sm svg,
+.btn.btn-default.btn-sm.list-sidebar-button svg{
+  --icon-stroke:white;
+  --icon-fill:white;
+}
 .btn.btn-default.btn-sm.btn-paging{
   background: #a0b10c !important;
   color: black !important;
@@ -1313,14 +1328,60 @@ option{
 }
 
 
-@media (max-width: 991px) {
-    .layout-side-section .overlay-sidebar.opened {
-        background: white;
+
+/* sidebar bg white color */
+    .layout-side-section .overlay-sidebar {
+      --fg-bg:white ;
+      background: var(--fg-bg);
     }
-}
 
 
 
 [data-theme="healthcare_theme"] .control-value.like-disabled-input.for-description{
   height:  fit-content !important;
+}
+
+
+/* update's differ's */
+.new-timeline .timeline-item .timeline-badge{
+      width: 15px;
+    height: 15px;
+    border-radius: 1em;
+    position: absolute;
+    --zero-px: 0px;
+    top: clamp(var(--zero-px), 50% - var(--timeline-item-icon-size) / 2, max(var(--zero-px), (34px - (50% - var(--timeline-item-icon-size) / 2)) * 34));
+    left: calc(-.6 * var(--timeline-item-left-margin));
+}
+.form-tabs-list .form-tabs{
+  background: white;
+}
+
+/* Container for relative positioning */
+.nav-tabs {
+  position: relative;
+}
+
+/* The animated highlight bar */
+.nav-tabs::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  height: 3px;
+  background-color: var(--primary, #007bff);
+  transition: all 0.3s ease;
+  border-radius: 2px;
+  width: 0;
+  left: 0;
+}
+
+/* Default nav-link styles */
+.nav-tabs .nav-link {
+  position: relative;
+  z-index: 1;
+  transition: color 0.3s ease;
+}
+
+/* Optional: color change on active */
+.form-tabs-list .form-tabs .nav-item .nav-link.active {
+    border-bottom: unset;
 }
